@@ -4,5 +4,6 @@
 </script>
 
 <div class="h-screen w-screen">
+	<nav></nav>
 	{@render children()}
 </div>
