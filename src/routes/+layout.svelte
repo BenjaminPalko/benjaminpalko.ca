@@ -26,7 +26,7 @@
 <div class="h-screen w-screen p-12">
 	<div class="bg-base-200 flex min-h-full flex-col rounded-4xl p-8">
 		<Navbar {pages} route={page.route} />
-		<div class="flex-1 p-8">{@render children()}</div>
+		<div class="flex flex-1 items-stretch p-8">{@render children()}</div>
 		<div>
 			<Footer links={socialLinks} />
 		</div>
