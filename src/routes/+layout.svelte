@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Footer from '$lib/components/Footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import '../app.css';
 
@@ -13,11 +14,21 @@
 		{ slug: '/experience', name: 'Experience' },
 		{ slug: '/contact', name: 'Contact' }
 	];
+
+	const socialLinks = [
+		{ name: 'Github', href: 'https://github.com/BenjaminPalko' },
+		{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/benjaminpalko/' },
+		{ name: 'Itch.io', href: 'https://baobeld.itch.io/' },
+		{ name: 'Ko-fi', href: 'https://ko-fi.com/baobeld' }
+	];
 </script>
 
 <div class="h-screen w-screen p-12">
-	<div class="bg-base-200 flex min-h-full flex-col gap-8 rounded-4xl p-8">
+	<div class="bg-base-200 flex min-h-full flex-col rounded-4xl p-8">
 		<Navbar {pages} route={page.route} />
-		<div class="px-8">{@render children()}</div>
+		<div class="flex-1 p-8">{@render children()}</div>
+		<div>
+			<Footer links={socialLinks} />
+		</div>
 	</div>
 </div>
