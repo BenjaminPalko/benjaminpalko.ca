@@ -1,58 +1,57 @@
-<div class="hazard-border flex w-full flex-col justify-around text-xl font-semibold italic">
-	<div class="scroll-parent hazard w-full -skew-2 overflow-hidden px-8">
-		<div class="scroll-element primary flex justify-around">
-			<p>Under Construction</p>
-			<p>Caution</p>
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-			<p>Caution</p>
-		</div>
-		<div class="scroll-element secondary flex justify-around">
-			<p>Under Construction</p>
-			<p>Caution</p>
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-			<p>Caution</p>
+<script lang="ts">
+	import { TriangleAlertIcon } from 'lucide-svelte';
+
+	const messages = ['Under Construction', 'Caution', 'Work In Progress'];
+</script>
+
+{#snippet Banner(messages: string[], backwards: boolean)}
+	<div
+		class="bg-hazard flex h-fit w-full flex-col bg-black py-8 text-xl font-semibold text-black italic"
+		class:skew-2={!backwards}
+		class:-skew-2={backwards}
+	>
+		<div class="scroll-parent w-full overflow-x-hidden bg-amber-400 px-8">
+			<div
+				class="scroll-element flex justify-around"
+				class:primary={!backwards}
+				class:-primary={backwards}
+			>
+				{#each messages.sort(() => {
+					const val = Math.random();
+					if (val > 0.66) return 1;
+					else if (val > 0.33) return 0;
+					else return -1;
+				}) as message (message)}
+					<TriangleAlertIcon />
+					<p>{message}</p>
+				{/each}
+			</div>
+			<div
+				class="scroll-element flex justify-around"
+				class:secondary={!backwards}
+				class:-secondary={backwards}
+			>
+				{#each messages as message (message)}
+					<TriangleAlertIcon />
+					<p>{message}</p>
+				{/each}
+			</div>
 		</div>
 	</div>
-	<div class="scroll-parent hazard w-full skew-2 overflow-hidden px-8">
-		<div class="scroll-element -primary flex justify-around">
-			<p>Caution</p>
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-			<p>Caution</p>
-			<p>Work In Progress</p>
-		</div>
-		<div class="scroll-element -secondary flex justify-around">
-			<p>Caution</p>
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-			<p>Caution</p>
-			<p>Work In Progress</p>
-		</div>
-	</div>
-	<div class="scroll-parent hazard w-full -skew-2 overflow-hidden px-8">
-		<div class="scroll-element primary flex justify-around">
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-			<p>Caution</p>
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-		</div>
-		<div class="scroll-element secondary flex justify-around">
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-			<p>Caution</p>
-			<p>Work In Progress</p>
-			<p>Under Construction</p>
-		</div>
+{/snippet}
+
+<div class="bg-hazard rounded-box w-full p-6">
+	<div class="bg-base-200 rounded-box flex h-full flex-col justify-around">
+		{@render Banner(messages, false)}
+		{@render Banner(messages, true)}
+		{@render Banner(messages, false)}
 	</div>
 </div>
 
 <style>
 	.scroll-parent {
 		position: relative;
-		height: 4.2rem;
+		height: 2rem;
 	}
 
 	.scroll-element {
@@ -117,8 +116,24 @@
 
 	.hazard-border {
 		border: solid 20px;
-		border-image: repeating-linear-gradient(-75deg, #ffb101, #ffb101 10px, black 10px, black 20px)
+		border-image: repeating-linear-gradient(
+				-75deg,
+				var(--color-amber-400),
+				var(--color-amber-400) 10px,
+				black 10px,
+				black 20px
+			)
 			20;
+	}
+
+	.bg-hazard {
+		background-image: repeating-linear-gradient(
+			-55deg,
+			var(--color-amber-400),
+			var(--color-amber-400) 10px,
+			black 10px,
+			black 20px
+		);
 	}
 
 	.hazard {
