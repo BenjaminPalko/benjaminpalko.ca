@@ -6,9 +6,9 @@
 
 {#snippet Banner(messages: string[], backwards: boolean)}
 	<div
-		class="bg-hazard flex h-fit w-full flex-col bg-black py-8 text-xl font-semibold text-black italic"
-		class:skew-2={!backwards}
-		class:-skew-2={backwards}
+		class="bg-hazard flex h-fit w-[110%] flex-col bg-black py-6 text-xl font-semibold text-black"
+		class:rotate-5={!backwards}
+		class:-rotate-5={backwards}
 	>
 		<div class="scroll-parent w-full overflow-x-hidden bg-amber-400 px-8">
 			<div
@@ -40,18 +40,21 @@
 	</div>
 {/snippet}
 
-<div class="bg-hazard rounded-box w-full p-6">
-	<div class="bg-base-200 rounded-box flex h-full flex-col justify-around">
+<div class="bg-hazard rounded-box w-full border border-amber-400 p-6">
+	<div
+		class="bg-base-200 rounded-box flex h-full flex-col items-center justify-center gap-24 overflow-hidden border border-amber-400"
+	>
 		{@render Banner(messages, false)}
 		{@render Banner(messages, true)}
 		{@render Banner(messages, false)}
+		{@render Banner(messages, true)}
 	</div>
 </div>
 
 <style>
 	.scroll-parent {
 		position: relative;
-		height: 2rem;
+		height: 1.8rem;
 	}
 
 	.scroll-element {
@@ -114,18 +117,6 @@
 		}
 	}
 
-	.hazard-border {
-		border: solid 20px;
-		border-image: repeating-linear-gradient(
-				-75deg,
-				var(--color-amber-400),
-				var(--color-amber-400) 10px,
-				black 10px,
-				black 20px
-			)
-			20;
-	}
-
 	.bg-hazard {
 		background-image: repeating-linear-gradient(
 			-55deg,
@@ -134,14 +125,5 @@
 			black 10px,
 			black 20px
 		);
-	}
-
-	.hazard {
-		color: black;
-		background: #ffb101;
-		border-top: solid 20px;
-		border-bottom: solid 20px;
-		border-image: repeating-linear-gradient(-75deg, #ffb101, #ffb101 10px, black 10px, black 20px)
-			20;
 	}
 </style>
