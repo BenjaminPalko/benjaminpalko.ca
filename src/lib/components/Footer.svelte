@@ -12,8 +12,10 @@
 <div class="flex justify-between">
 	<div class="flex gap-8">
 		{#each links as link (link.href)}
-			<a href={link.href} class="hover:text-base-content text-slate-600 transition-colors"
-				>{link.name}</a
+			<a
+				href={link.href}
+				target="_blank"
+				class="hover:text-base-content text-slate-600 transition-colors">{link.name}</a
 			>
 		{/each}
 	</div>
