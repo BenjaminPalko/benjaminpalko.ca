@@ -1,50 +1,50 @@
-<div class="hazard-border flex w-full flex-col justify-around">
+<div class="hazard-border flex w-full flex-col justify-around text-xl font-semibold italic">
 	<div class="scroll-parent hazard w-full -skew-2 overflow-hidden px-8">
 		<div class="scroll-element primary flex justify-around">
-			<b>Under Construction</b>
-			<b>Caution</b>
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
-			<b>Caution</b>
+			<p>Under Construction</p>
+			<p>Caution</p>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
+			<p>Caution</p>
 		</div>
 		<div class="scroll-element secondary flex justify-around">
-			<b>Under Construction</b>
-			<b>Caution</b>
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
-			<b>Caution</b>
+			<p>Under Construction</p>
+			<p>Caution</p>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
+			<p>Caution</p>
 		</div>
 	</div>
 	<div class="scroll-parent hazard w-full skew-2 overflow-hidden px-8">
 		<div class="scroll-element -primary flex justify-around">
-			<b>Caution</b>
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
-			<b>Caution</b>
-			<b>Work In Progress</b>
+			<p>Caution</p>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
+			<p>Caution</p>
+			<p>Work In Progress</p>
 		</div>
 		<div class="scroll-element -secondary flex justify-around">
-			<b>Caution</b>
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
-			<b>Caution</b>
-			<b>Work In Progress</b>
+			<p>Caution</p>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
+			<p>Caution</p>
+			<p>Work In Progress</p>
 		</div>
 	</div>
 	<div class="scroll-parent hazard w-full -skew-2 overflow-hidden px-8">
 		<div class="scroll-element primary flex justify-around">
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
-			<b>Caution</b>
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
+			<p>Caution</p>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
 		</div>
 		<div class="scroll-element secondary flex justify-around">
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
-			<b>Caution</b>
-			<b>Work In Progress</b>
-			<b>Under Construction</b>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
+			<p>Caution</p>
+			<p>Work In Progress</p>
+			<p>Under Construction</p>
 		</div>
 	</div>
 </div>
@@ -52,7 +52,7 @@
 <style>
 	.scroll-parent {
 		position: relative;
-		height: 4rem;
+		height: 4.2rem;
 	}
 
 	.scroll-element {
