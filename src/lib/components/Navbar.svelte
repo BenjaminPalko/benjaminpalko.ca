@@ -9,13 +9,15 @@
 
 <nav class="navbar px-12">
 	<div class="flex flex-1 items-center gap-4">
-		<div class="avatar avatar-placeholder">
-			<div
-				class="ring-accent ring-offset-base-100 bg-base-200 text-neutral-content w-10 rounded-full ring ring-offset-2"
-			>
-				<span>B</span>
+		<a href="/">
+			<div class="avatar avatar-placeholder">
+				<div
+					class="ring-primary ring-offset-base-100 bg-base-200 text-base-content w-10 rounded-full text-xl ring-2 ring-offset-2"
+				>
+					<b>B</b>
+				</div>
 			</div>
-		</div>
+		</a>
 		<h2 class="text-3xl"><b>Benjamin</b> Palko</h2>
 	</div>
 	<div class="flex gap-4 text-lg">
