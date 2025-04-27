@@ -16,7 +16,7 @@ FROM node:18-alpine3.21
 
 WORKDIR /opt/app
 
-COPY ./package.json ./bun.lock
+COPY ./package.json ./bun.lock ./
 COPY --from=build --chown=1000:1000 /opt/build/node_modules/ /opt/app/node_modules/
 COPY --from=build --chown=1000:1000 /opt/build/build /opt/app
 
