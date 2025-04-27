@@ -8,10 +8,9 @@
 
 	const pages = [
 		{ slug: '/about', name: 'About Me' },
-		{ slug: '/portfolio', name: 'Portfolio' },
+		{ slug: '/resume', name: 'Resume' },
 		{ slug: '/blog', name: 'Blog' },
 		{ slug: '/projects', name: 'Projects' },
-		{ slug: '/experience', name: 'Experience' },
 		{ slug: '/contact', name: 'Contact' }
 	];
 
@@ -25,7 +24,7 @@
 
 <div class="h-screen w-screen p-12">
 	<div class="bg-base-200 flex min-h-full flex-col rounded-4xl p-8">
-		<Navbar {pages} route={page.route} />
+		<Navbar title="Benjamin Palko" {pages} route={page.route} />
 		<div class="flex flex-1 items-stretch p-8">{@render children()}</div>
 		<div>
 			<Footer links={socialLinks} />

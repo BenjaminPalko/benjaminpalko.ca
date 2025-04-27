@@ -7,6 +7,8 @@
 	}
 
 	let { photo, titles, name, description }: Props = $props();
+
+	let [first, rest] = $derived([name.split(' ')[0], name.split(' ').slice(1).join(' ')]);
 </script>
 
 <div class="hero bg-base-200">
@@ -15,7 +17,7 @@
 			<div class="flex-0">
 				<div class="avatar">
 					<div
-						class="ring-offset-base-100 ring-base-100 w-56 rounded-full shadow-2xl ring-8 ring-offset-2 dark:shadow-none"
+						class="ring-offset-base-100 ring-base-100 dark:ring-primary w-56 rounded-full shadow-2xl ring-8 ring-offset-2 dark:shadow-none"
 					>
 						<img src={photo} alt="Its me!" />
 					</div>
@@ -23,12 +25,15 @@
 			</div>
 			<div class="flex flex-1 flex-col">
 				<p>{titles.join(', ')}</p>
-				<h1 class="text-5xl font-bold">{name}</h1>
+				<h1 class="text-primary text-5xl font-light">
+					<span class="text-base-content font-semibold">{first}</span>
+					{rest}
+				</h1>
 				<p class="block py-6">
 					{description}
 				</p>
 				<div class="flex justify-end gap-4">
-					<a href="/portfolio" class="btn btn-outline btn-primary btn-wide">Portfolio</a>
+					<a href="/resume" class="btn btn-outline btn-primary btn-wide">Resume</a>
 					<a href="/contact" class="btn btn-primary btn-wide">Contact</a>
 				</div>
 			</div>

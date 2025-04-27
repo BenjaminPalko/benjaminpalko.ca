@@ -1,10 +1,11 @@
 <script lang="ts">
 	interface Props {
+		title: string;
 		pages: { slug: string; name: string }[];
 		route: { id: string | null };
 	}
 
-	let { pages, route }: Props = $props();
+	let { title, pages, route }: Props = $props();
 </script>
 
 <nav class="navbar px-12">
@@ -12,13 +13,16 @@
 		<a href="/">
 			<div class="avatar avatar-placeholder w-12">
 				<div
-					class="ring-primary ring-offset-base-100 bg-base-200 text-base-content mx-auto w-10 rounded-full text-xl ring-2 ring-offset-2 transition-all ease-in hover:w-12 hover:text-2xl"
+					class="ring-primary ring-offset-base-100 bg-base-200 text-base-content mx-auto w-10 rounded-full ring-2 ring-offset-2 transition-all ease-in hover:w-12 hover:text-2xl"
 				>
-					<b>B</b>
+					<span class="text-2xl"> {title.at(0)} </span>
 				</div>
 			</div>
 		</a>
-		<h2 class="text-3xl"><b>Benjamin</b> Palko</h2>
+		<h2 class="text-primary text-3xl font-light">
+			<span class="text-base-content font-semibold">Benjamin</span>
+			Palko
+		</h2>
 	</div>
 	<div class="flex gap-4 text-lg">
 		{#each pages as page (page.slug)}
