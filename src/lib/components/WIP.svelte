@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TriangleAlertIcon } from 'lucide-svelte';
 
-	const messages = ['Under Construction', 'Caution', 'Work In Progress'];
+	const messages = ['Under Construction', 'Caution', 'Work In Progress', 'Hard-hats required!'];
 </script>
 
 {#snippet Banner(messages: string[], backwards: boolean)}

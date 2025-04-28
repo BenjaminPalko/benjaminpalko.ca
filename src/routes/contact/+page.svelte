@@ -1,27 +1,18 @@
 <script>
 	import { enhance } from '$app/forms';
-	import { Croissant, Mail, Send, UserRound } from 'lucide-svelte';
+	import { Croissant, Mail, UserRound } from 'lucide-svelte';
 </script>
 
-<div class="flex w-full justify-around">
-	<div class="flex flex-col gap-4">
-		<h1 class="text-4xl">
-			Hello there friend.<br />Want to chat?
-		</h1>
-		<h5 class="text-lg">Reach out! 🤝</h5>
-		<div class="flex items-center gap-4 rounded-lg bg-base-100 p-4 shadow-lg">
-			<Send size="24" />
-			<div class="flex flex-col font-semibold">
-				Send me an email!
-				<a class="link link-primary" href="mailto:benjaminpalko@hotmail.com">
-					benjaminpalko@hotmail.com
-				</a>
-			</div>
-		</div>
+<div class="flex flex-col">
+	<div class="flex flex-col items-center">
+		<span class="animate-bounce text-2xl">😁</span>
+		<h2 class="text-2xl">Hello there friend</h2>
 	</div>
+
 	<form id="contact" use:enhance>
-		<div class="flex flex-col gap-4 bg-base-200">
-			<h2 class="text-xl font-semibold">Send me a message!</h2>
+		<div class="bg-base-200 flex flex-col gap-4">
+			<h1 class="text-4xl">Want to chat?</h1>
+			<h5 class="text-lg">Reach out! 🤝</h5>
 			<label class="input input-bordered flex items-center gap-2">
 				<UserRound />
 				<input name="name" type="text" class="grow" placeholder="What is your name?" />

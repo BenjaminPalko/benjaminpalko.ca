@@ -8,7 +8,7 @@
 	let { title, pages, route }: Props = $props();
 </script>
 
-<nav class="navbar px-12">
+<nav class="navbar">
 	<div class="flex flex-1 items-center gap-4">
 		<a href="/">
 			<div class="avatar avatar-placeholder w-12">
