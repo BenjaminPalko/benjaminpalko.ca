@@ -42,10 +42,8 @@
 
 <div class="bg-hazard rounded-box w-full border border-amber-400 p-6">
 	<div
-		class="bg-base-200 rounded-box flex h-full flex-col items-center justify-center gap-24 overflow-hidden border border-amber-400"
+		class="bg-base-200 rounded-box flex h-full flex-col items-center justify-center gap-48 overflow-hidden border border-amber-400"
 	>
-		{@render Banner(messages, false)}
-		{@render Banner(messages, true)}
 		{@render Banner(messages, false)}
 		{@render Banner(messages, true)}
 	</div>
