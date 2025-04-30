@@ -1,41 +1,63 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms';
-	import { Croissant, Mail, UserRound } from 'lucide-svelte';
+	import {
+		CircleCheck,
+		CircleX,
+		Croissant,
+		Mail,
+		Send,
+		TriangleAlert,
+		UserRound
+	} from 'lucide-svelte';
+	import type { PageProps } from './$types';
+
+	let { form }: PageProps = $props();
 </script>
 
-<div class="flex flex-col">
-	<div class="flex flex-col items-center">
-		<span class="animate-bounce text-2xl">😁</span>
-		<h2 class="text-2xl">Hello there friend</h2>
-	</div>
-
-	<form id="contact" use:enhance>
-		<div class="bg-base-200 flex flex-col gap-4">
-			<h1 class="text-4xl">Want to chat?</h1>
-			<h5 class="text-lg">Reach out! 🤝</h5>
-			<label class="input input-bordered flex items-center gap-2">
-				<UserRound />
-				<input name="name" type="text" class="grow" placeholder="What is your name?" />
-			</label>
-			<label class="input input-bordered flex items-center gap-2">
-				<Mail />
-				<input name="email" type="text" class="grow" placeholder="I'm going to need your email." />
-			</label>
-			<label class="input input-bordered flex items-center gap-2">
-				<Croissant />
-				<input name="name" type="text" class="grow" placeholder="Subject" />
-			</label>
-			<label class="form-control">
-				<div class="label">
-					<span class="label-text">What do you want to say?</span>
+<form id="contact" method="post" use:enhance>
+	<div class="mx-auto grid max-w-3xl grid-flow-col grid-cols-3 grid-rows-7 content-end gap-4 py-8">
+		<div class="col-span-full">
+			{#if form?.response?.rejected.length ?? 0 > 0}
+				<div role="alert" class="alert alert-error w-full">
+					<CircleX />
+					<span>Ruh roh raggy!</span>
 				</div>
-				<textarea
-					name="message"
-					form="contact"
-					class="textarea textarea-bordered h-24"
-					placeholder="Hello friend..."
-				></textarea>
-			</label>
+			{:else if form?.response?.accepted.length ?? 0 > 0}
+				<div role="alert" class="alert alert-success w-full">
+					<CircleCheck />
+					<span>Your message has been sent successfully!</span>
+				</div>
+			{:else if form?.incorrect}
+				<div role="alert" class="alert alert-warning w-full">
+					<TriangleAlert />
+					<span>Ruh roh raggy!</span>
+				</div>
+			{/if}
 		</div>
-	</form>
-</div>
+
+		<h2 class="col-span-full text-3xl font-light">Reach out! 🤝</h2>
+
+		<label class="input input-bordered flex w-full items-center">
+			<UserRound />
+			<input name="name" type="text" class="grow" placeholder="Full Name" />
+		</label>
+		<label class="input input-bordered flex w-full items-center gap-2">
+			<Mail />
+			<input name="email" type="text" class="grow" placeholder="Your Email" />
+		</label>
+		<label class="input input-bordered flex w-full items-center gap-2">
+			<Croissant />
+			<input name="subject" type="text" class="grow" placeholder="Subject" />
+		</label>
+		<button type="submit" class="btn btn-primary">Send Message <Send size={20} /></button>
+
+		<div class="col-span-2 row-span-4">
+			<textarea
+				name="message"
+				form="contact"
+				class="textarea textarea-bordered h-full w-full resize-none"
+				placeholder="Message"
+			></textarea>
+		</div>
+	</div>
+</form>

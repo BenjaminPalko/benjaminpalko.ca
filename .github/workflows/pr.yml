@@ -1,0 +1,35 @@
+name: PR Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Bun Setup
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: '.tool-versions'
+      - name: Install
+        run: bun install
+      - name: Lint
+        run: bun lint
+      - name: Build
+        run: bun run build
+      - name: Svelte Check
+        run: bun check
+      - name: Test
+        run: bun run test:unit

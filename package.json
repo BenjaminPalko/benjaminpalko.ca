@@ -5,6 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
+		"compose:up": "docker compose -p strapi -f devops/docker-compose.dev.yml up -d ",
+		"compose:down": "docker compose -p strapi -f devops/docker-compose.dev.yml down",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -21,6 +23,7 @@
 		"@sveltejs/kit": "^2.20.7",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tailwindcss/vite": "^4.1.4",
+		"@types/nodemailer": "^6.4.17",
 		"autoprefixer": "^10.4.21",
 		"daisyui": "^5.0.28",
 		"eslint": "^9.25.1",
@@ -40,6 +43,7 @@
 		"vitest": "^3.1.2"
 	},
 	"dependencies": {
-		"lucide-svelte": "^0.503.0"
+		"lucide-svelte": "^0.503.0",
+		"nodemailer": "^6.10.1"
 	}
 }
