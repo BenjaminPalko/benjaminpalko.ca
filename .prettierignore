@@ -2,3 +2,9 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# Dont even try lol
+.svelte-kit
+build
+node_modules
+
