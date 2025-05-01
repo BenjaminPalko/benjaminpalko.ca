@@ -1,9 +1,4 @@
-import {
-	MAIL_TRANSPORT_HOST,
-	MAIL_TRANSPORT_PASS,
-	MAIL_TRANSPORT_PORT,
-	MAIL_TRANSPORT_USER
-} from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { fail } from '@sveltejs/kit';
 import { createTransport } from 'nodemailer';
 import type { Actions } from './$types';
@@ -49,11 +44,11 @@ export const actions = {
 		}
 
 		const transport = createTransport({
-			host: MAIL_TRANSPORT_HOST,
-			port: isNaN(Number(MAIL_TRANSPORT_PORT)) ? 587 : Number(MAIL_TRANSPORT_PORT),
+			host: env.MAIL_TRANSPORT_HOST,
+			port: isNaN(Number(env.MAIL_TRANSPORT_PORT)) ? 587 : Number(env.MAIL_TRANSPORT_PORT),
 			auth: {
-				user: MAIL_TRANSPORT_USER,
-				pass: MAIL_TRANSPORT_PASS
+				user: env.MAIL_TRANSPORT_USER,
+				pass: env.MAIL_TRANSPORT_PASS
 			}
 		});
 

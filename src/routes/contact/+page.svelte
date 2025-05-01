@@ -15,7 +15,7 @@
 </script>
 
 <form id="contact" method="post" use:enhance>
-	<div class="mx-auto grid max-w-3xl grid-flow-col grid-cols-3 grid-rows-7 content-end gap-4 py-8">
+	<div class="mx-auto grid max-w-3xl gap-4 py-8 sm:grid-flow-col sm:grid-cols-3 sm:grid-rows-6">
 		<div class="col-span-full">
 			{#if form?.response?.rejected.length ?? 0 > 0}
 				<div role="alert" class="alert alert-error w-full">
@@ -37,21 +37,20 @@
 
 		<h2 class="col-span-full text-3xl font-light">Reach out! 🤝</h2>
 
-		<label class="input input-bordered flex w-full items-center">
+		<label class="input input-bordered col-span-full flex w-full items-center sm:col-span-1">
 			<UserRound />
 			<input name="name" type="text" class="grow" placeholder="Full Name" />
 		</label>
-		<label class="input input-bordered flex w-full items-center gap-2">
+		<label class="input input-bordered col-span-full flex w-full items-center gap-2 sm:col-span-1">
 			<Mail />
 			<input name="email" type="text" class="grow" placeholder="Your Email" />
 		</label>
-		<label class="input input-bordered flex w-full items-center gap-2">
+		<label class="input input-bordered col-span-full flex w-full items-center gap-2 sm:col-span-1">
 			<Croissant />
 			<input name="subject" type="text" class="grow" placeholder="Subject" />
 		</label>
-		<button type="submit" class="btn btn-primary">Send Message <Send size={20} /></button>
 
-		<div class="col-span-2 row-span-4">
+		<div class="row-span-3 sm:col-span-2">
 			<textarea
 				name="message"
 				form="contact"
@@ -59,5 +58,7 @@
 				placeholder="Message"
 			></textarea>
 		</div>
+
+		<button type="submit" class="btn btn-primary col-span0">Send Message <Send size={20} /></button>
 	</div>
 </form>

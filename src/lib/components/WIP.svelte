@@ -6,11 +6,11 @@
 
 {#snippet Banner(messages: string[], backwards: boolean)}
 	<div
-		class="bg-hazard flex h-fit w-[110%] flex-col bg-black py-6 text-xl font-semibold text-black"
+		class="bg-hazard flex h-fit w-[110%] flex-col bg-black py-3 text-xs font-semibold text-nowrap text-black lg:py-6 lg:text-lg"
 		class:rotate-5={!backwards}
 		class:-rotate-5={backwards}
 	>
-		<div class="scroll-parent w-full overflow-x-hidden bg-amber-400 px-8">
+		<div class="scroll-parent h-4 w-full overflow-x-hidden bg-amber-400 px-8 lg:h-6">
 			<div
 				class="scroll-element flex justify-around"
 				class:primary={!backwards}
@@ -40,9 +40,9 @@
 	</div>
 {/snippet}
 
-<div class="bg-hazard rounded-box h-full w-full border border-amber-400 p-6">
+<div class="bg-hazard rounded-box h-full w-full border border-amber-400 p-4 lg:p-6">
 	<div
-		class="bg-base-200 rounded-box flex h-full flex-col items-center justify-center gap-48 overflow-hidden border border-amber-400"
+		class="bg-base-200 rounded-box flex h-full flex-col items-center justify-center gap-32 overflow-hidden border border-amber-400 lg:gap-48"
 	>
 		{@render Banner(messages, false)}
 		{@render Banner(messages, true)}
@@ -52,7 +52,6 @@
 <style>
 	.scroll-parent {
 		position: relative;
-		height: 1.8rem;
 	}
 
 	.scroll-element {
