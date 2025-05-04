@@ -5,6 +5,7 @@ yarn.lock
 
 # Dont even try lol
 .svelte-kit
+dist
 build
 node_modules
 

@@ -3,9 +3,12 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"workspaces": [
+		"strapi"
+	],
 	"scripts": {
 		"dev": "vite dev",
-		"compose:up": "docker compose -p strapi -f devops/docker-compose.dev.yml up -d ",
+		"compose:up": "docker compose --env-file .env -p strapi -f devops/docker-compose.dev.yml up -d ",
 		"compose:down": "docker compose -p strapi -f devops/docker-compose.dev.yml down",
 		"build": "vite build",
 		"preview": "vite preview",

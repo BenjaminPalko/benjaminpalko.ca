@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  install:
-    name: Install
+  website:
+    name: Deploy website
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -30,3 +30,23 @@ jobs:
         with:
           push: true
           tags: git.palko.ca/${{ env.GITHUB_REPOSITORY }}:latest
+  strapi:
+    name: Deploy strapi
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.GITHUB_SERVER_URL }}
+          username: ${{ env.GITHUB_REPOSITORY_OWNER }}
+          password: ${{ secrets.NPM_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: '{{defaultContext}}:strapi'
+          push: true
+          tags: git.palko.ca/${{ env.GITHUB_REPOSITORY }}-strapi:latest
