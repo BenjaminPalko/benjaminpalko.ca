@@ -2,13 +2,8 @@ FROM oven/bun:1.2-alpine AS build
 
 WORKDIR /opt/build
 
-COPY ./package.json ./bun.lock ./
-RUN bun install --filter '!strapi'
-
-COPY postcss.config.js svelte.config.js tailwind.config.ts tsconfig.json vite.config.ts ./
-COPY ./src ./src
-COPY ./static ./static
-RUN bun run build
+COPY . .
+RUN bun install --filter '!strapi' && bun run build
 
 RUN rm -rf ./node_modules/ && bun install --filter '!strapi' --production
 
