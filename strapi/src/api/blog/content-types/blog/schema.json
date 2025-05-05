@@ -1,0 +1,36 @@
+{
+	"kind": "collectionType",
+	"collectionName": "blogs",
+	"info": {
+		"singularName": "blog",
+		"pluralName": "blogs",
+		"displayName": "Blog",
+		"description": ""
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"Title": {
+			"type": "string",
+			"required": true,
+			"unique": true
+		},
+		"Body": {
+			"type": "richtext",
+			"required": true
+		},
+		"Topics": {
+			"displayName": "Tag",
+			"type": "component",
+			"repeatable": true,
+			"component": "shared.tag"
+		},
+		"Header": {
+			"type": "media",
+			"multiple": false,
+			"required": true,
+			"allowedTypes": ["images"]
+		}
+	}
+}

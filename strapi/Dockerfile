@@ -6,7 +6,7 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /opt/
 COPY package.json bun.lock ./
-RUN bun add --global node-gyp && bun install --production --frozen-lockfile
+RUN bun add --global node-gyp && bun install --filter 'strapi' --production --frozen-lockfile
 ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .

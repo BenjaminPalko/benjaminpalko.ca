@@ -50,6 +50,17 @@ export interface SharedSeo extends Struct.ComponentSchema {
 	};
 }
 
+export interface SharedTag extends Struct.ComponentSchema {
+	collectionName: 'components_shared_tags';
+	info: {
+		displayName: 'Tag';
+		icon: 'priceTag';
+	};
+	attributes: {
+		Topic: Schema.Attribute.Enumeration<['development', 'work', 'life']>;
+	};
+}
+
 declare module '@strapi/strapi' {
 	export module Public {
 		export interface ComponentSchemas {
@@ -57,6 +68,7 @@ declare module '@strapi/strapi' {
 			'shared.quote': SharedQuote;
 			'shared.rich-text': SharedRichText;
 			'shared.seo': SharedSeo;
+			'shared.tag': SharedTag;
 		}
 	}
 }

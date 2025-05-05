@@ -34,7 +34,7 @@
 
 	<div class="drawer-content h-screen w-screen lg:p-12">
 		<div
-			class="bg-base-200 grid min-h-full grid-rows-[max-content_max-content_auto_max-content] overflow-hidden lg:gap-4 lg:rounded-4xl"
+			class="bg-base-200 mx-auto grid min-h-full max-w-7xl grid-rows-[max-content_max-content_auto_max-content] overflow-hidden shadow-md lg:gap-4 lg:rounded-4xl"
 		>
 			<header class="lg:p-6">
 				<Navbar drawerId="navigation-drawer" title="Benjamin Palko" {pages} route={page.route} />
@@ -66,14 +66,14 @@
 		</div>
 	</div>
 
-	<div class="drawer-side">
+	<div class="drawer-side z-50">
 		<label for="navigation-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 		<div class="menu bg-base-200 flex min-h-full w-full flex-col justify-between p-4">
 			<ul class="flex flex-col gap-4">
 				{#each pages as page (page.slug)}
 					<li>
 						<button
-							class="btn btn-primary btn-soft btn-lg"
+							class="btn btn-primary btn-outline btn-lg"
 							onclick={() => {
 								goto(page.slug);
 								drawerOpen = false;
@@ -88,7 +88,7 @@
 					<span class="text-base-content font-semibold">Benjamin</span>
 					Palko
 				</h2>
-				<label for="navigation-drawer" class="btn btn-error btn-soft btn-lg">Close</label>
+				<label for="navigation-drawer" class="btn btn-accent btn-outline btn-lg">Close</label>
 			</div>
 		</div>
 	</div>
