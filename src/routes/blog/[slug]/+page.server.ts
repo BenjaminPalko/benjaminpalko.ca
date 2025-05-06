@@ -1,4 +1,4 @@
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	const { slug } = params;
@@ -12,16 +12,16 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 			image: {
 				url: post.Header.url,
 				alt: post.Header.alternativeText,
-				caption: post.Header.caption,
+				caption: post.Header.caption
 			},
 			title: post.Title,
 			body: post.Body,
 			topics: post.Topics.map((topic: { id: string; Topic: string }) => ({
 				id: topic.id,
-				name: topic.Topic,
+				name: topic.Topic
 			})),
-			published: post.publishedAt,
+			published: post.publishedAt
 		},
-		meta,
+		meta
 	};
 };

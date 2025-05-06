@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { env } from '$env/dynamic/public';
 	import dayjs from 'dayjs';
 	import { compile } from 'mdsvex';
 	import type { PageProps } from './$types';
@@ -14,11 +13,7 @@
 		<p class="text-gray-500">{dayjs(post.published).format('DD MMMM YYYY')}</p>
 		<h1 class="text-4xl font-light">{post.title}</h1>
 	</div>
-	<img
-		class="aspect-4/2 w-full object-cover"
-		src={`${env.PUBLIC_STRAPI_HOST}${post.image.url}`}
-		alt={post.image.alt}
-	/>
+	<img class="aspect-4/2 w-full object-cover" src={post.image.url} alt={post.image.alt} />
 	<div class="w-full max-w-5xl px-4">
 		{#await compile(post.body)}
 			<div class="skeleton h-48 w-full"></div>

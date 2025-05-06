@@ -1,5 +1,5 @@
-import { error } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import { error } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const { strapi } = locals;
@@ -12,20 +12,20 @@ export const load: PageServerLoad = async ({ locals }) => {
 				id: post.documentId,
 				image: {
 					url: post.Header.formats.medium.url,
-					alt: post.Header.alternativeText,
+					alt: post.Header.alternativeText
 				},
 				title: post.Title,
 				body: post.Body,
 				topics: post.Topics.map((topic: { id: string; Topic: string }) => ({
 					id: topic.id,
-					name: topic.Topic,
+					name: topic.Topic
 				})),
-				published: post.publishedAt,
+				published: post.publishedAt
 			})),
-			meta,
+			meta
 		};
 	} catch (err) {
-		console.log("Uh-oh!");
+		console.log('Uh-oh!');
 		error(500, err.message);
 	}
 };

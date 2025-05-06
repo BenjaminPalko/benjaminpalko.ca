@@ -1,6 +1,6 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 
-import type { Strapi } from "$lib/server/strapi";
+import type { Strapi } from '$lib/server/strapi';
 
 // for information about these interfaces
 declare global {
