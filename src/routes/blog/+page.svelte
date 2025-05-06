@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import type { PageProps } from './$types';
 
@@ -15,7 +16,7 @@
 	{#each posts as post (post.id)}
 		<BlogCard
 			id={post.id}
-			img={post.image.url}
+			img={`${env.PUBLIC_STRAPI_HOST}${post.image.url}`}
 			img-alt={post.image.alt}
 			title={post.title}
 			published={post.published}
