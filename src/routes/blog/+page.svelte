@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { env } from '$env/dynamic/public';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import type { PageProps } from './$types';
 
@@ -15,12 +14,12 @@
 <div class="mx-auto grid gap-8 px-3 py-3 sm:px-8 sm:py-4 lg:grid-cols-2">
 	{#each posts as post (post.id)}
 		<BlogCard
-			documentId={post.documentId}
-			img={`${env.PUBLIC_STRAPI_HOST}${post.Header.formats.medium.url}`}
-			img-alt={post.Header.alternativeText}
-			title={post.Title}
-			published={post.publishedAt}
-			topics={post.Topics}
+			id={post.id}
+			img={post.image.url}
+			img-alt={post.image.alt}
+			title={post.title}
+			published={post.published}
+			topics={post.topics}
 		/>
 	{/each}
 </div>

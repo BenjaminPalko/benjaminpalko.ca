@@ -3,24 +3,24 @@
 	import { Link } from 'lucide-svelte';
 
 	interface Props {
-		documentId: string;
+		id: string;
 		img: string;
 		'img-alt': string | null;
 		title: string;
 		published: string;
-		topics: { id: number; Topic: string }[];
+		topics: { id: number; name: string }[];
 	}
 
-	let { documentId, img, 'img-alt': alt, title, published, topics }: Props = $props();
+	let { id, img, 'img-alt': alt, title, published, topics }: Props = $props();
 
-	let blogLink = $derived(`/blog/${documentId}`);
+	let blogLink = $derived(`/blog/${id}`);
 </script>
 
 <div class="card">
 	<figure class="rounded-box group">
 		<div class="absolute top-4 left-4 z-10 flex gap-2">
 			{#each topics as topic (topic.id)}
-				<div class="badge badge-soft badge-info">{topic.Topic}</div>
+				<div class="badge badge-soft badge-info">{topic.name}</div>
 			{/each}
 		</div>
 		<div class="absolute z-10 opacity-0 transition-opacity group-hover:opacity-75">

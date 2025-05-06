@@ -46,6 +46,7 @@
 		"vitest": "^3.1.2"
 	},
 	"dependencies": {
+		"@strapi/client": "^1.4.0",
 		"dayjs": "^1.11.13",
 		"lucide-svelte": "^0.503.0",
 		"nodemailer": "^6.10.1"

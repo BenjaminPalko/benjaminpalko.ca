@@ -1,24 +1,37 @@
 import { env } from '$env/dynamic/private';
+import { strapi } from '@strapi/client';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ locals, params }) => {
 	const { slug } = params;
-	const response = await fetch(
-		`http://${env.STRAPI_HOST}:${env.STRAPI_PORT}/api/blogs/${slug}?populate=Header&populate=Topics`,
-		{
-			method: 'GET',
-			headers: {
-				Authorization: `bearer ${env.STRAPI_TOKEN}`
-			}
-		}
-	);
+	const { Strapi } = locals;
 
-	const { data, meta } = await response.json();
+	const client = strapi({
+		baseURL: Strapi.url,
+		auth: env.STRAPI_TOKEN
+	});
 
-	console.log(JSON.stringify(data, null, 2));
+	const blogs = client.collection('blogs');
+
+	const { data: post, meta } = await blogs.findOne(slug, {
+		populate: ['Header', 'Topics']
+	});
 
 	return {
-		post: data,
+		post: {
+			id: post.documentId,
+			image: {
+				url: `${Strapi.url}${post.Header.url}`,
+				alt: post.Header.alternativeText
+			},
+			title: post.Title,
+			body: post.Body,
+			topics: post.Topics.map((topic: { id: string; Topic: string }) => ({
+				id: topic.id,
+				name: topic.Topic
+			})),
+			published: post.publishedAt
+		},
 		meta
 	};
 };
