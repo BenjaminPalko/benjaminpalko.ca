@@ -1,4 +1,5 @@
 import { env } from '$env/dynamic/private';
+import { logger } from '$lib/server/logger';
 import { Strapi } from '$lib/server/strapi';
 import type { Handle, HandleServerError } from '@sveltejs/kit';
 import { randomUUID } from 'crypto';
@@ -6,7 +7,7 @@ import { randomUUID } from 'crypto';
 export const handleError: HandleServerError = async ({ error, event, message, status }) => {
 	const errorId = randomUUID();
 
-	console.error(error, { errorId, event, message, status });
+	logger.error({ error, errorId, event, message, status }, 'Blyat');
 
 	return {
 		message: 'An Internal Error Occurred',

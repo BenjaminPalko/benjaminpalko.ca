@@ -1,3 +1,4 @@
+import { logger } from '$lib/server/logger';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
@@ -25,7 +26,9 @@ export const load: PageServerLoad = async ({ locals }) => {
 			meta
 		};
 	} catch (err) {
-		console.log('Uh-oh!');
-		error(500, err.message);
+		logger.error('Uh-oh!', err);
+		if (err instanceof Error) {
+			error(500, err);
+		}
 	}
 };

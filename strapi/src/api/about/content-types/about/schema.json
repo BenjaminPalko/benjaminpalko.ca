@@ -1,0 +1,41 @@
+{
+	"kind": "singleType",
+	"collectionName": "abouts",
+	"info": {
+		"singularName": "about",
+		"pluralName": "abouts",
+		"displayName": "About",
+		"description": ""
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"Name": {
+			"type": "string"
+		},
+		"Bio": {
+			"type": "text"
+		},
+		"Photo": {
+			"type": "media",
+			"multiple": false,
+			"required": false,
+			"allowedTypes": ["images", "files", "videos", "audios"]
+		},
+		"Activities": {
+			"displayName": "Thing I Do",
+			"type": "component",
+			"repeatable": true,
+			"component": "shared.thing-i-do",
+			"max": 4,
+			"min": 4
+		},
+		"Titles": {
+			"displayName": "Title",
+			"type": "component",
+			"repeatable": true,
+			"component": "shared.title"
+		}
+	}
+}

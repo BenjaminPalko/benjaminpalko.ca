@@ -2,6 +2,7 @@ import { env } from '$env/dynamic/private';
 import { fail } from '@sveltejs/kit';
 import { createTransport } from 'nodemailer';
 import type { Actions } from './$types';
+import { logger } from '$lib/server/logger';
 
 export const actions = {
 	default: async ({ request }) => {
@@ -74,7 +75,7 @@ export const actions = {
 				}
 			};
 		} catch (error) {
-			console.error(error);
+			logger.error(error);
 		}
 	}
 } satisfies Actions;

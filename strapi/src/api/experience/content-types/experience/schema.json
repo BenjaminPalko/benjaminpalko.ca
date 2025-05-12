@@ -1,0 +1,41 @@
+{
+	"kind": "collectionType",
+	"collectionName": "experiences",
+	"info": {
+		"singularName": "experience",
+		"pluralName": "experiences",
+		"displayName": "Experience",
+		"description": ""
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"Title": {
+			"type": "string",
+			"required": true
+		},
+		"Company": {
+			"type": "string",
+			"required": true,
+			"unique": true
+		},
+		"Description": {
+			"type": "text",
+			"required": true
+		},
+		"StartDate": {
+			"type": "date",
+			"required": true
+		},
+		"EndDate": {
+			"type": "date"
+		},
+		"Logo": {
+			"type": "media",
+			"multiple": false,
+			"required": false,
+			"allowedTypes": ["images", "files", "videos", "audios"]
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"kind": "collectionType",
+	"collectionName": "educations",
+	"info": {
+		"singularName": "education",
+		"pluralName": "educations",
+		"displayName": "Education"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"Institute": {
+			"type": "string"
+		},
+		"StartDate": {
+			"type": "date"
+		},
+		"EndDate": {
+			"type": "date"
+		},
+		"Field": {
+			"type": "string"
+		},
+		"Description": {
+			"type": "text"
+		}
+	}
+}
