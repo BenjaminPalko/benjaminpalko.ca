@@ -34,8 +34,8 @@
 		{#each pages as page (page.slug)}
 			<a
 				href={page.slug}
-				class="link hover:link-accent transition-colors"
-				class:link-accent={route.id === page.slug}
+				class="link hover:link-secondary transition-colors"
+				class:link-secondary={route.id === page.slug}
 			>
 				{page.name}
 			</a>

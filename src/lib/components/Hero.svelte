@@ -11,7 +11,7 @@
 	let [first, rest] = $derived([name.split(' ')[0], name.split(' ').slice(1).join(' ')]);
 </script>
 
-<div class="hero bg-base-200">
+<div class="hero">
 	<div class="hero-content">
 		<div class="flex flex-col items-center gap-12 lg:flex-row lg:items-start">
 			<div class="flex-0">

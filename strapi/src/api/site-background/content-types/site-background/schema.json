@@ -1,0 +1,19 @@
+{
+	"kind": "singleType",
+	"collectionName": "site_backgrounds",
+	"info": {
+		"singularName": "site-background",
+		"pluralName": "site-backgrounds",
+		"displayName": "Site Background"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"Background": {
+			"allowedTypes": ["images", "files", "videos", "audios"],
+			"type": "media",
+			"multiple": false
+		}
+	}
+}

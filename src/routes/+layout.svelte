@@ -3,8 +3,9 @@
 	import { navigating, page } from '$app/state';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import '../app.css';
+	import type { LayoutProps } from './$types';
 
-	let { children } = $props();
+	let { children, data }: LayoutProps = $props();
 
 	let drawerOpen = $state(false);
 
@@ -29,19 +30,18 @@
 	let current = $derived(pages.find((p) => p.slug === page.route.id));
 </script>
 
-<div class="drawer drawer-end">
+<div class="drawer drawer-end bg-cover" style:background-image={`url(${data.background.url})`}>
 	<input id="navigation-drawer" type="checkbox" class="drawer-toggle" bind:checked={drawerOpen} />
-
-	<div class="drawer-content h-screen w-screen lg:p-12">
+	<div class="drawer-content h-screen w-screen overflow-y-scroll lg:p-12">
 		<div
-			class="bg-base-200 mx-auto grid min-h-full max-w-7xl grid-rows-[max-content_max-content_auto_max-content] overflow-hidden shadow-md lg:gap-4 lg:rounded-4xl"
+			class="bg-base-100 border-base-300 mx-auto grid min-h-full max-w-7xl grid-rows-[max-content_max-content_auto_max-content] overflow-hidden border-2 shadow-md lg:gap-4 lg:rounded-4xl"
 		>
 			<header class="lg:p-6">
 				<Navbar drawerId="navigation-drawer" title="Benjamin Palko" {pages} route={page.route} />
 			</header>
 			<div>
 				{#if current && current.slug !== '/'}
-					<div class="bg-base-300 w-full px-6 py-4 lg:px-12 lg:py-8">
+					<div class="bg-base-200 w-full px-6 py-4 lg:px-12 lg:py-8">
 						<h1 class="text-2xl font-light lg:text-4xl">{current.name}</h1>
 					</div>
 				{/if}
@@ -88,7 +88,7 @@
 					<span class="text-base-content font-semibold">Benjamin</span>
 					Palko
 				</h2>
-				<label for="navigation-drawer" class="btn btn-accent btn-outline btn-lg">Close</label>
+				<label for="navigation-drawer" class="btn btn-secondary btn-outline btn-lg">Close</label>
 			</div>
 		</div>
 	</div>
