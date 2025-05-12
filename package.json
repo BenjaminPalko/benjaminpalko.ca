@@ -7,7 +7,7 @@
 		"strapi"
 	],
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev | pino-pretty",
 		"compose:up": "docker compose --env-file .env -p strapi -f devops/docker-compose.dev.yml up -d ",
 		"compose:down": "docker compose -p strapi -f devops/docker-compose.dev.yml down",
 		"build": "vite build",
@@ -34,6 +34,7 @@
 		"eslint-plugin-svelte": "^3.5.1",
 		"globals": "^16.0.0",
 		"mdsvex": "^0.12.5",
+		"pino-pretty": "^13.0.0",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
@@ -49,6 +50,7 @@
 		"@strapi/client": "^1.4.0",
 		"dayjs": "^1.11.13",
 		"lucide-svelte": "^0.503.0",
-		"nodemailer": "^6.10.1"
+		"nodemailer": "^6.10.1",
+		"pino": "^9.6.0"
 	}
 }
