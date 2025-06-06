@@ -1,6 +1,9 @@
 <script lang="ts">
+	import BlockQuote from '$lib/markdown/renderers/BlockQuote.svelte';
+	import Code from '$lib/markdown/renderers/Code.svelte';
+	import Link from '$lib/markdown/renderers/Link.svelte';
+	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 	import dayjs from 'dayjs';
-	import { compile } from 'mdsvex';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -15,11 +18,9 @@
 	</div>
 	<img class="aspect-4/2 w-full object-cover" src={post.image.url} alt={post.image.alt} />
 	<div class="w-full max-w-5xl px-4">
-		{#await compile(post.body)}
-			<div class="skeleton h-48 w-full"></div>
-		{:then content}
-			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-			{@html content?.code}
-		{/await}
+		<SvelteMarkdown
+			source={data.post.body}
+			renderers={{ link: Link, code: Code, blockquote: BlockQuote }}
+		/>
 	</div>
 </div>
