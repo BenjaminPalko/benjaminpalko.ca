@@ -22,16 +22,14 @@
 	</div>
 {/snippet}
 
-<div class="flex flex-col items-center px-6 md:px-12">
-	<div class="lg:py-48">
+<div class="grid grid-cols-1 gap-8 px-6 md:grid-cols-2 md:px-12">
+	<div class="col-span-full lg:py-36">
 		<Hero photo={about.photo.url} titles={about.titles} name={about.name} description={about.bio} />
 	</div>
-	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-		<div class="col-span-full">
-			<h2 class="border-primary w-fit border-b text-2xl font-light">What I Do</h2>
-		</div>
-		{#each about.activities as activity (activity.title)}
-			{@render Activity(activity)}
-		{/each}
+	<div class="col-span-full">
+		<h2 class="border-primary w-fit border-b text-2xl font-light">What I Do</h2>
 	</div>
+	{#each about.activities as activity (activity.title)}
+		{@render Activity(activity)}
+	{/each}
 </div>

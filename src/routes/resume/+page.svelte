@@ -1,6 +1,7 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
 	import type { PageProps } from './$types';
+	import { Briefcase, Heart, Zap } from 'lucide-svelte';
 
 	let { data }: PageProps = $props();
 
@@ -59,7 +60,7 @@
 	</div>
 {/snippet}
 
-<div class="grid w-fit gap-4 px-6 py-6 sm:px-8 sm:py-4 lg:grid-cols-2">
+<div class="grid w-full gap-4 px-6 py-6 sm:px-8 sm:py-4 lg:grid-cols-2">
 	<!-- Experience -->
 	<div class="col-span-full">
 		<div class="flex flex-col gap-1">
