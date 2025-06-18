@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Menu } from 'lucide-svelte';
+	import { Menu } from '@lucide/svelte';
 
 	interface Props {
 		drawerId: string;

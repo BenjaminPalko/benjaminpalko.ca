@@ -1,7 +1,7 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
 	import type { PageProps } from './$types';
-	import { Briefcase, Heart, Zap } from 'lucide-svelte';
+	import { Briefcase, Heart, Zap } from '@lucide/svelte';
 
 	let { data }: PageProps = $props();
 

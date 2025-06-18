@@ -8,7 +8,7 @@
 		Send,
 		TriangleAlert,
 		UserRound
-	} from 'lucide-svelte';
+	} from '@lucide/svelte';
 	import type { PageProps } from './$types';
 
 	let { form }: PageProps = $props();

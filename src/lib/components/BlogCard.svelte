@@ -1,6 +1,6 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
-	import { Link } from 'lucide-svelte';
+	import { Link } from '@lucide/svelte';
 
 	interface Props {
 		id: string;

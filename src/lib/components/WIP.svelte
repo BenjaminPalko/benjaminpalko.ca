@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TriangleAlertIcon } from 'lucide-svelte';
+	import { TriangleAlertIcon } from '@lucide/svelte';
 
 	const messages = ['Under Construction', 'Caution', 'Work In Progress', 'Hard-hats required!'];
 </script>
