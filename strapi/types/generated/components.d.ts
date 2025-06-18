@@ -61,31 +61,6 @@ export interface SharedTag extends Struct.ComponentSchema {
 	};
 }
 
-export interface SharedThingIDo extends Struct.ComponentSchema {
-	collectionName: 'components_shared_thing_i_dos';
-	info: {
-		description: '';
-		displayName: 'Thing I Do';
-		icon: 'walk';
-	};
-	attributes: {
-		Description: Schema.Attribute.Text;
-		Title: Schema.Attribute.String;
-	};
-}
-
-export interface SharedTitle extends Struct.ComponentSchema {
-	collectionName: 'components_shared_titles';
-	info: {
-		description: '';
-		displayName: 'Title';
-		icon: 'user';
-	};
-	attributes: {
-		value: Schema.Attribute.String;
-	};
-}
-
 declare module '@strapi/strapi' {
 	export module Public {
 		export interface ComponentSchemas {
@@ -94,8 +69,6 @@ declare module '@strapi/strapi' {
 			'shared.rich-text': SharedRichText;
 			'shared.seo': SharedSeo;
 			'shared.tag': SharedTag;
-			'shared.thing-i-do': SharedThingIDo;
-			'shared.title': SharedTitle;
 		}
 	}
 }

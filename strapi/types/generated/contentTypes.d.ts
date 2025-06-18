@@ -336,41 +336,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 	};
 }
 
-export interface ApiAboutAbout extends Struct.SingleTypeSchema {
-	collectionName: 'abouts';
-	info: {
-		description: '';
-		displayName: 'About';
-		pluralName: 'abouts';
-		singularName: 'about';
-	};
-	options: {
-		draftAndPublish: true;
-	};
-	attributes: {
-		Activities: Schema.Attribute.Component<'shared.thing-i-do', true> &
-			Schema.Attribute.SetMinMax<
-				{
-					max: 4;
-					min: 4;
-				},
-				number
-			>;
-		Bio: Schema.Attribute.Text;
-		createdAt: Schema.Attribute.DateTime;
-		createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-		locale: Schema.Attribute.String & Schema.Attribute.Private;
-		localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
-			Schema.Attribute.Private;
-		Name: Schema.Attribute.String;
-		Photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-		publishedAt: Schema.Attribute.DateTime;
-		Titles: Schema.Attribute.Component<'shared.title', true>;
-		updatedAt: Schema.Attribute.DateTime;
-		updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-	};
-}
-
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
 	collectionName: 'blogs';
 	info: {
@@ -398,80 +363,26 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
 	};
 }
 
-export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
-	collectionName: 'educations';
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+	collectionName: 'projects';
 	info: {
-		displayName: 'Education';
-		pluralName: 'educations';
-		singularName: 'education';
+		displayName: 'Project';
+		pluralName: 'projects';
+		singularName: 'project';
 	};
 	options: {
 		draftAndPublish: true;
 	};
 	attributes: {
-		createdAt: Schema.Attribute.DateTime;
-		createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-		Description: Schema.Attribute.Text;
-		EndDate: Schema.Attribute.Date;
-		Field: Schema.Attribute.String;
-		Institute: Schema.Attribute.String;
-		locale: Schema.Attribute.String & Schema.Attribute.Private;
-		localizations: Schema.Attribute.Relation<'oneToMany', 'api::education.education'> &
-			Schema.Attribute.Private;
-		publishedAt: Schema.Attribute.DateTime;
-		StartDate: Schema.Attribute.Date;
-		updatedAt: Schema.Attribute.DateTime;
-		updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-	};
-}
-
-export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
-	collectionName: 'experiences';
-	info: {
-		description: '';
-		displayName: 'Experience';
-		pluralName: 'experiences';
-		singularName: 'experience';
-	};
-	options: {
-		draftAndPublish: true;
-	};
-	attributes: {
-		Company: Schema.Attribute.String & Schema.Attribute.Required & Schema.Attribute.Unique;
-		createdAt: Schema.Attribute.DateTime;
-		createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-		Description: Schema.Attribute.Text & Schema.Attribute.Required;
-		EndDate: Schema.Attribute.Date;
-		locale: Schema.Attribute.String & Schema.Attribute.Private;
-		localizations: Schema.Attribute.Relation<'oneToMany', 'api::experience.experience'> &
-			Schema.Attribute.Private;
-		Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-		publishedAt: Schema.Attribute.DateTime;
-		StartDate: Schema.Attribute.Date & Schema.Attribute.Required;
-		Title: Schema.Attribute.String & Schema.Attribute.Required;
-		updatedAt: Schema.Attribute.DateTime;
-		updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-	};
-}
-
-export interface ApiSiteBackgroundSiteBackground extends Struct.SingleTypeSchema {
-	collectionName: 'site_backgrounds';
-	info: {
-		displayName: 'Site Background';
-		pluralName: 'site-backgrounds';
-		singularName: 'site-background';
-	};
-	options: {
-		draftAndPublish: true;
-	};
-	attributes: {
-		Background: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+		body: Schema.Attribute.RichText;
 		createdAt: Schema.Attribute.DateTime;
 		createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
 		locale: Schema.Attribute.String & Schema.Attribute.Private;
-		localizations: Schema.Attribute.Relation<'oneToMany', 'api::site-background.site-background'> &
+		localizations: Schema.Attribute.Relation<'oneToMany', 'api::project.project'> &
 			Schema.Attribute.Private;
+		media: Schema.Attribute.Media<'images'>;
 		publishedAt: Schema.Attribute.DateTime;
+		title: Schema.Attribute.String;
 		updatedAt: Schema.Attribute.DateTime;
 		updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
 	};
@@ -904,11 +815,8 @@ declare module '@strapi/strapi' {
 			'admin::transfer-token': AdminTransferToken;
 			'admin::transfer-token-permission': AdminTransferTokenPermission;
 			'admin::user': AdminUser;
-			'api::about.about': ApiAboutAbout;
 			'api::blog.blog': ApiBlogBlog;
-			'api::education.education': ApiEducationEducation;
-			'api::experience.experience': ApiExperienceExperience;
-			'api::site-background.site-background': ApiSiteBackgroundSiteBackground;
+			'api::project.project': ApiProjectProject;
 			'plugin::content-releases.release': PluginContentReleasesRelease;
 			'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
 			'plugin::i18n.locale': PluginI18NLocale;
