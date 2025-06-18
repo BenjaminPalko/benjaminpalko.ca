@@ -1,0 +1,98 @@
+{
+	"basics": {
+		"name": "Benjamin Palko",
+		"email": "benjaminpalko@hotmail.com",
+		"phone": "613-340-4839",
+		"location": {
+			"city": "Ottawa",
+			"region": "ON"
+		}
+	},
+	"education": [
+		{
+			"institution": "Carleton University",
+			"location": "Ottawa, ON",
+			"area": "Software Engineering",
+			"studyType": "B. Eng",
+			"endDate": "2019-11",
+			"startDate": "2014-09"
+		}
+	],
+	"work": [
+		{
+			"company": "Bizxcel",
+			"location": "Brockville, ON",
+			"position": "Software Developer",
+			"website": "",
+			"description": "Contributed to an internal issue tracking web app by adding Markdown support to time entries. Later returned full-time to maintain and enhance a proprietary insurance submission server, ensuring stability and compliance with evolving submission rules.",
+			"startDate": "2018-05",
+			"endDate": "2020-02"
+		},
+		{
+			"company": "Mitel",
+			"position": "Backend Developer",
+			"description": "At Mitel as backend developer working on MiCloud Contact Center, later I moved to a new project to create a PBX cloud solution, on this project I was part of a team developing an Analytics Service in AWS Lambda. This service integrated with a third party analytics tool to provide user dashboards of operational data, which enhanced management level decision making.",
+			"location": "Ottawa, ON",
+			"startDate": "2020-03",
+			"endDate": "2021-08"
+		},
+		{
+			"company": "Privacy Analytics",
+			"position": "Backend Developer",
+			"description": "Contributed to a new product for parsing and de-identifying unstructured healthcare documents. Worked on a multinational team building a multi-language microservices backend. Developed unit test–driven PDF parsing code, migrated a core Node.js service to TypeScript to improve reliability and speed, and led the creation of an asynchronous job service API integrating with existing company tools.",
+			"location": "Ottawa, ON",
+			"startDate": "2021-09",
+			"endDate": "2022-09"
+		},
+		{
+			"company": "Shakudo",
+			"position": "Full Stack Developer",
+			"description": "Worked in a fast-paced Scrum environment with a focus on frontend development for a Web3 and data processing platform. Built robust, reusable UI components and led improvements including an asynchronous notification system, enhanced state management, and more responsive, validated forms.",
+			"location": "Toronto, ON",
+			"startDate": "2022-09",
+			"endDate": "2023-05"
+		},
+		{
+			"position": "Full Stack Developer",
+			"description": "Provided production support and feature development for a logistics management platform, including client communications and coordination with cross-functional teams. Also contributed to a .NET-based integration system for importing AS400 data, built on Azure infrastructure and managed using Pulumi for infrastructure-as-code, ensuring efficient, scalable, and reliable data processing.",
+			"company": "Bridgenext",
+			"location": "Ottawa, ON",
+			"startDate": "2023-12"
+		}
+	],
+	"skills": [
+		{
+			"keywords": ["Typescript", "Javascript", "CSS", "C#", "C++", "Bash"],
+			"name": "Languages"
+		},
+		{
+			"keywords": [
+				"React",
+				"Nextjs",
+				"Svelte",
+				"Expressjs",
+				"GraphQL",
+				"Tailwindcss",
+				".NET",
+				"ASPNET"
+			],
+			"name": "Frameworks & Web"
+		},
+		{
+			"keywords": ["Docker", "Kubernetes", "Github Actions", "AWS", "Azure"],
+			"name": "Build & Deployment"
+		},
+		{
+			"keywords": ["CosmosDb", "MongoDb", "PostgresDb", "Prisma"],
+			"name": "Databases"
+		}
+	],
+	"projects": [
+		{
+			"url": "https://store.steampowered.com/app/2648600/Cowpocalypse/",
+			"keywords": ["Unity, C#"],
+			"name": "Cowpocalypse",
+			"description": "This was a solo project based on a Game Jam submission for GB Jam 2023, the game was further developed and released on Steam. It is an arcade style game built with the Unity game engine, written in C#, with assets made in Aseprite and audio assets from the Kenneys asset pack."
+		}
+	]
+}
