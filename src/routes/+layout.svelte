@@ -5,7 +5,7 @@
 	import '../app.css';
 	import type { LayoutProps } from './$types';
 
-	let { children, data }: LayoutProps = $props();
+	let { children }: LayoutProps = $props();
 
 	let drawerOpen = $state(false);
 
@@ -30,11 +30,11 @@
 	let current = $derived(pages.find((p) => p.slug === page.route.id));
 </script>
 
-<div class="drawer drawer-end bg-cover" style:background-image={`url(${data.background.url})`}>
+<div class="drawer drawer-end">
 	<input id="navigation-drawer" type="checkbox" class="drawer-toggle" bind:checked={drawerOpen} />
 	<div class="drawer-content h-screen w-screen overflow-y-scroll lg:p-12">
 		<div
-			class="bg-base-100 border-base-300 mx-auto grid min-h-full max-w-7xl grid-rows-[max-content_max-content_auto_max-content] overflow-hidden border-2 shadow-md lg:gap-4 lg:rounded-4xl"
+			class="bg-base-100/90 border-base-300 mx-auto grid min-h-full max-w-7xl grid-rows-[max-content_max-content_auto_max-content] overflow-hidden border-2 shadow-md lg:gap-4 lg:rounded-4xl"
 		>
 			<header class="lg:p-6">
 				<Navbar drawerId="navigation-drawer" title="Benjamin Palko" {pages} route={page.route} />
