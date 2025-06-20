@@ -2,4 +2,6 @@
 	import Wip from '$lib/components/WIP.svelte';
 </script>
 
-<Wip />
+<div class="h-full p-8">
+	<Wip />
+</div>
