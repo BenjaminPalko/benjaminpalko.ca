@@ -6,6 +6,7 @@
 	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 	import dayjs from 'dayjs';
 	import type { PageProps } from './$types';
+	import Paragraph from '$lib/markdown/renderers/Paragraph.svelte';
 
 	let { data }: PageProps = $props();
 
@@ -21,7 +22,13 @@
 	<div class="w-full max-w-5xl px-4">
 		<SvelteMarkdown
 			source={data.post.body}
-			renderers={{ link: Link, code: Code, blockquote: BlockQuote, heading: Heading }}
+			renderers={{
+				link: Link,
+				code: Code,
+				blockquote: BlockQuote,
+				heading: Heading,
+				paragraph: Paragraph
+			}}
 		/>
 	</div>
 </div>
