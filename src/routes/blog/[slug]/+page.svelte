@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BlockQuote from '$lib/markdown/renderers/BlockQuote.svelte';
 	import Code from '$lib/markdown/renderers/Code.svelte';
+	import Heading from '$lib/markdown/renderers/Heading.svelte';
 	import Link from '$lib/markdown/renderers/Link.svelte';
 	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 	import dayjs from 'dayjs';
@@ -20,7 +21,7 @@
 	<div class="w-full max-w-5xl px-4">
 		<SvelteMarkdown
 			source={data.post.body}
-			renderers={{ link: Link, code: Code, blockquote: BlockQuote }}
+			renderers={{ link: Link, code: Code, blockquote: BlockQuote, heading: Heading }}
 		/>
 	</div>
 </div>
