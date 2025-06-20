@@ -3,10 +3,13 @@
 	import Code from '$lib/markdown/renderers/Code.svelte';
 	import Heading from '$lib/markdown/renderers/Heading.svelte';
 	import Link from '$lib/markdown/renderers/Link.svelte';
+	import List from '$lib/markdown/renderers/List.svelte';
+	import OrderedListItem from '$lib/markdown/renderers/OrderedListItem.svelte';
+	import Paragraph from '$lib/markdown/renderers/Paragraph.svelte';
+	import UnorderedListItem from '$lib/markdown/renderers/UnorderedListItem.svelte';
 	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 	import dayjs from 'dayjs';
 	import type { PageProps } from './$types';
-	import Paragraph from '$lib/markdown/renderers/Paragraph.svelte';
 
 	let { data }: PageProps = $props();
 
@@ -24,6 +27,9 @@
 			source={data.post.body}
 			renderers={{
 				link: Link,
+				list: List,
+				orderedlistitem: OrderedListItem,
+				unorderedlistitem: UnorderedListItem,
 				code: Code,
 				blockquote: BlockQuote,
 				heading: Heading,
