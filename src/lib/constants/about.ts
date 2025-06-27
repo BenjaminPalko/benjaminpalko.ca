@@ -34,7 +34,7 @@ export const activities: Item[] = [
 		icon: BicepsFlexed,
 		title: "Athletics",
 		description:
-			"Self-proclaimed athlete, cyclist, runner and racer. Excercise is important, I love the outdoors, and I try to get out as much as I can. Keeping your body healthy does wonders for your mind.",
+			"Self-proclaimed athlete, cyclist, runner and racer. I love the outdoors and I try to get out as much as I can. Excercise is important for keeping your mind sharp!",
 	},
 	{
 		icon: Braces,
