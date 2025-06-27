@@ -10,6 +10,7 @@
 	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 	import dayjs from 'dayjs';
 	import type { PageProps } from './$types';
+	import Image from '$lib/components/Image.svelte';
 
 	let { data }: PageProps = $props();
 
@@ -21,7 +22,7 @@
 		<p class="text-gray-500">{dayjs(post.published).format('DD MMMM YYYY')}</p>
 		<h1 class="text-4xl font-light">{post.title}</h1>
 	</div>
-	<img class="aspect-4/2 w-full object-cover" src={post.image.url} alt={post.image.alt} />
+	<Image src={post.image.url} alt={post.image.alt} caption={post.image.caption} />
 	<div class="w-full max-w-5xl px-4">
 		<SvelteMarkdown
 			source={data.post.body}
