@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-	themes: light --default, forest --prefersdark;
+	themes: nord --default, forest --prefersdark;
 }
 
 :root {
-	@apply bg-[url("/background.jpg")] bg-cover font-[Roboto];
+	@apply bg-[url("/background-light.jpg")] bg-cover font-[Roboto] dark:bg-[url("/background.jpg")];
 }
