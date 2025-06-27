@@ -15,29 +15,31 @@ export const titles: string[] = [
 ];
 
 export const description: string =
-	"Hi! I'm Ben, a Canadian Software Developer from Ottawa, Canada 🇨. I'm currently a Full Stack Developer and I love to do side projects, learn new things and have fun while doing it. I have participated in Game Jams, fallen down the rabbit hole of Linux Ricing and many other things away from the desk like races, cycling and even wood-working!";
+	"Hi! I'm Ben, a Canadian Software Developer from Ottawa, Canada. I currently work as Full Stack Developer with a strong architectural mindsent. I enjoy learning new things and broadening my perspectives, I take pride in being a generalist which I believe gives me an edge. I enjoy working on side projects, have participated in Game Jams, fallen down the rabbit hole of Linux Ricing. I have an active life from the desk, like races, cycling, climbing and even wood-working! If you want to learn more about me check out my resume, my blog posts or my projects!";
 
 export const activities: Item[] = [
 	{
 		icon: Globe,
 		title: "Web Development",
-		description: "React, Typescript and Svelte oh my",
+		description:
+			"This is what I have been doing for a living for almost 7 years. I've worked on projects from Python, to Java EE, Spring Framework, .NET and a whole lot of the jungle of the Javascript/Typescript ecosystem.",
 	},
 	{
 		icon: Gamepad2,
 		title: "Game Development",
 		description:
-			"Unreal, Unity, Godot, RPG Maker. The game dev community was at peace until the Unity nation attacked",
+			"I've worked in both Unity and Godot, I hope to build my own engine and/or become a contributor! It's a hobby I do out of passion and inspiration. Save the animals!",
 	},
 	{
 		icon: BicepsFlexed,
 		title: "Athletics",
-		description: "Self-proclaimed athlete, cyclist, runner and racer",
+		description:
+			"Self-proclaimed athlete, cyclist, runner and racer. Excercise is important, I love the outdoors, and I try to get out as much as I can. Keeping your body healthy does wonders for your mind.",
 	},
 	{
 		icon: Braces,
 		title: "Linux Ricing",
 		description:
-			"Builder of rices, vanquisher of Windows, distributor of open-source",
+			"Not just a hobby, it's a lifestyle. It's a Pandora's box of taking back control of your tech life, and be warned, it doesn't end with just your desktop.",
 	},
 ];
