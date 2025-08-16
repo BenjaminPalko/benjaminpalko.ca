@@ -366,6 +366,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
 	collectionName: 'projects';
 	info: {
+		description: '';
 		displayName: 'Project';
 		pluralName: 'projects';
 		singularName: 'project';
@@ -377,14 +378,41 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
 		body: Schema.Attribute.RichText;
 		createdAt: Schema.Attribute.DateTime;
 		createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+		embed: Schema.Attribute.String;
 		locale: Schema.Attribute.String & Schema.Attribute.Private;
 		localizations: Schema.Attribute.Relation<'oneToMany', 'api::project.project'> &
 			Schema.Attribute.Private;
-		media: Schema.Attribute.Media<'images'>;
 		publishedAt: Schema.Attribute.DateTime;
+		tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
 		title: Schema.Attribute.String;
 		updatedAt: Schema.Attribute.DateTime;
 		updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+		url: Schema.Attribute.String;
+	};
+}
+
+export interface ApiTagTag extends Struct.CollectionTypeSchema {
+	collectionName: 'tags';
+	info: {
+		description: '';
+		displayName: 'Tag';
+		pluralName: 'tags';
+		singularName: 'tag';
+	};
+	options: {
+		draftAndPublish: true;
+	};
+	attributes: {
+		createdAt: Schema.Attribute.DateTime;
+		createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+		locale: Schema.Attribute.String & Schema.Attribute.Private;
+		localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
+			Schema.Attribute.Private;
+		projects: Schema.Attribute.Relation<'manyToMany', 'api::project.project'>;
+		publishedAt: Schema.Attribute.DateTime;
+		updatedAt: Schema.Attribute.DateTime;
+		updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+		value: Schema.Attribute.String;
 	};
 }
 
@@ -817,6 +845,7 @@ declare module '@strapi/strapi' {
 			'admin::user': AdminUser;
 			'api::blog.blog': ApiBlogBlog;
 			'api::project.project': ApiProjectProject;
+			'api::tag.tag': ApiTagTag;
 			'plugin::content-releases.release': PluginContentReleasesRelease;
 			'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
 			'plugin::i18n.locale': PluginI18NLocale;

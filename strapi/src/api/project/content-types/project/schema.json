@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +17,17 @@
     "body": {
       "type": "richtext"
     },
-    "media": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "projects"
+    },
+    "url": {
+      "type": "string"
+    },
+    "embed": {
+      "type": "string"
     }
   }
 }
