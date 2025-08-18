@@ -36,7 +36,7 @@
 		<div
 			class="bg-base-100/90 border-base-300 mx-auto grid min-h-full max-w-7xl grid-rows-[max-content_max-content_auto_max-content] overflow-hidden border-2 shadow-md lg:gap-4 lg:rounded-4xl"
 		>
-			<header class="lg:p-6">
+			<header class="bg-base-200/40 border-base-300 border-b-2 lg:p-6">
 				<Navbar drawerId="navigation-drawer" title="Benjamin Palko" {pages} route={page.route} />
 			</header>
 			<div>
