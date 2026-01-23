@@ -14,8 +14,7 @@
 		{#each posts as post (post.slug)}
 			<BlogCard
 				id={post.slug}
-				img={post.image.url}
-				img-alt={post.image.alt}
+				img={post.image}
 				title={post.title}
 				published={post.date}
 				topics={post.categories}

@@ -1,17 +1,20 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
 	import { Link } from '@lucide/svelte';
+	import Image from './Image.svelte';
 
 	interface Props {
 		id: string;
-		img: string;
-		'img-alt': string | null;
+		img: {
+			url: string;
+			alt?: string;
+		};
 		title: string;
 		published: string;
 		topics: string[];
 	}
 
-	let { id, img, 'img-alt': alt, title, published, topics }: Props = $props();
+	let { id, img, title, published, topics }: Props = $props();
 
 	let blogLink = $derived(`/blog/${id}`);
 </script>
@@ -23,14 +26,14 @@
 				<div class="badge badge-soft badge-info">{topic}</div>
 			{/each}
 		</div>
-		<div class="absolute z-10 opacity-0 transition-opacity group-hover:opacity-75">
+		<div class="absolute z-20 opacity-0 transition-opacity group-hover:opacity-75">
 			<Link size={32} />
 		</div>
-		<a href={blogLink}>
-			<img
-				class="z-0 aspect-4/2 w-full object-cover transition-transform group-hover:scale-110 group-hover:blur-xs"
-				src={img}
-				{alt}
+		<a href={blogLink} class="h-full w-full">
+			<Image
+				class="z-10 aspect-4/2 w-full object-cover transition-transform group-hover:scale-110 group-hover:blur-xs"
+				src={img.url}
+				alt={img.alt}
 			/>
 		</a>
 	</figure>

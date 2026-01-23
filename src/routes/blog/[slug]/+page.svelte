@@ -11,7 +11,11 @@
 		<p class="text-gray-500">{dayjs(data.meta.date).format('DD MMMM YYYY')}</p>
 		<h1 class="text-4xl font-light">{data.meta.title}</h1>
 	</div>
-	<Image src={data.meta.image.url} alt={data.meta.image.alt} />
+	<Image
+		src={data.meta.image.url}
+		alt={data.meta.image.alt}
+		class="aspect-4/2 w-full object-cover"
+	/>
 	<div class="w-full max-w-5xl px-4">
 		<data.content class="content" />
 	</div>
