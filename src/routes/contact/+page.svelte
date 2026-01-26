@@ -14,8 +14,6 @@
 	let loading = $state(false);
 
 	let { form }: PageProps = $props();
-
-	$inspect(form);
 </script>
 
 <form
@@ -33,19 +31,19 @@
 		<h2 class="col-span-full text-center text-4xl font-light">Reach out! 🤝</h2>
 
 		<div class="col-span-full">
-			{#if form?.response?.rejected.length ?? 0 > 0}
-				<div role="alert" class="alert alert-error w-full">
-					<CircleX />
+			{#if form?.incorrect}
+				<div role="alert" class="alert alert-warning w-full">
+					<TriangleAlert />
 					<span>Ruh roh raggy!</span>
 				</div>
-			{:else if form?.response?.accepted.length ?? 0 > 0}
+			{:else if form?.response?.ok}
 				<div role="alert" class="alert alert-success w-full">
 					<CircleCheck />
 					<span>Your message has been sent successfully!</span>
 				</div>
-			{:else if form?.incorrect}
-				<div role="alert" class="alert alert-warning w-full">
-					<TriangleAlert />
+			{:else if form?.response?.ok === false}
+				<div role="alert" class="alert alert-error w-full">
+					<CircleX />
 					<span>Ruh roh raggy!</span>
 				</div>
 			{/if}
