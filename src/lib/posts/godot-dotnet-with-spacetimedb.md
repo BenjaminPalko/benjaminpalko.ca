@@ -1,4 +1,5 @@
 ---
+layout: blog
 title: Godot .NET with SpacetimeDB
 description: First post.
 image:
