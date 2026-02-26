@@ -8,7 +8,7 @@ image:
 date: '2026-1-22'
 categories:
   - development
-published: true
+published: false
 ---
 
 I've been on and off again experimenting with Godot since the great Unity [controversy of 2023.](https://www.geekwire.com/2023/heres-why-so-many-video-game-developers-are-suddenly-abandoning-the-unity-engine/) At the time Godot came up pretty quickly as the open-source alternative, I'll spare you the history lesson we are here to talk SpacetimeDB! If you found this article I assume you already know what SpacetimeDB is.
@@ -60,16 +60,16 @@ services:
 
 ```json
 {
- "name": "massive",
- "scripts": {
-  "database:up": "docker compose up -d",
-  "database:down": "docker compose down",
-  "database:publish": "spacetime publish --project-path server massive",
-  "database:generate": "spacetime generate --lang csharp --out-dir client/module_bindings --project-path server"
- },
- "devDependencies": {
-  "@types/bun": "latest"
- }
+	"name": "massive",
+	"scripts": {
+		"database:up": "docker compose up -d",
+		"database:down": "docker compose down",
+		"database:publish": "spacetime publish --project-path server massive",
+		"database:generate": "spacetime generate --lang csharp --out-dir client/module_bindings --project-path server"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	}
 }
 ```
 

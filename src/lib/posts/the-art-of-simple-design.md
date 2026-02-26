@@ -7,7 +7,7 @@ image:
 date: '2026-1-22'
 categories:
   - development
-published: true
+published: false
 ---
 
 Project degradation as a result of contextual shifts during development is a common occurrence, contextual shifts are a natural part of the project development process, and we should always try to account for them in our design and as we develop. Some design frameworks like IDesign seek to solve this through functional decomposition, by reducing a project to a set of functional interactions, i.e a data access calls, business logic, orchestration, etc... This is certainly the correct path, but in the process of trying to develop a perfect solution, often falls into the pit of overdesign with strict naming conventions and complicated architecture. This actively becomes a hindrance to development cadence, the problem we were seeking to fix.
@@ -16,17 +16,17 @@ A strong design methodology should not be a strict instruction manual, but an in
 
 ```typescript
 interface User {
- id: string;
- name: string;
- email: string;
- hashed_password: string;
+	id: string;
+	name: string;
+	email: string;
+	hashed_password: string;
 }
 
 interface IUserAccessor {
- findUser(user_id: string): Promise<User>;
- createUser(user: User): Promise<User>;
- updateUser(user: User): Promise<User>;
- deleteUser(user_id: string): Promise<boolean>;
+	findUser(user_id: string): Promise<User>;
+	createUser(user: User): Promise<User>;
+	updateUser(user: User): Promise<User>;
+	deleteUser(user_id: string): Promise<boolean>;
 }
 ```
 
