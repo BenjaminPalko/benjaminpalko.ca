@@ -7,12 +7,13 @@
 	import h3 from '$lib/components/markdown/Heading3.svelte';
 	import h4 from '$lib/components/markdown/Heading4.svelte';
 	import h5 from '$lib/components/markdown/Heading5.svelte';
+	import img from '$lib/components/markdown/Image.svelte';
 	import p from '$lib/components/markdown/Paragraph.svelte';
 	import pre from '$lib/components/markdown/Pre.svelte';
 	import ol from '$lib/components/markdown/OrderedListItem.svelte';
 	import ul from '$lib/components/markdown/UnorderedList.svelte';
 
-	export { a, blockquote, code, h1, h2, h3, h4, h5, p, pre, ol, ul };
+	export { a, blockquote, code, h1, h2, h3, h4, h5, img, p, pre, ol, ul };
 </script>
 
 <slot />
