@@ -11,7 +11,7 @@
 <h3
 	{...props}
 	class={twMerge(
-		'before:border-l-accent bg-base-200/60 my-3 w-full overflow-hidden rounded-lg py-2 text-xl font-light before:mr-4 before:border-l-6 before:py-8',
+		'before:border-l-accent bg-base-200/40 relative my-3 w-full overflow-hidden rounded-lg py-2 pl-4 text-xl font-light before:absolute before:top-0 before:left-0  before:h-full before:border-l-6 before:py-8',
 		clsx(className)
 	)}
 >
