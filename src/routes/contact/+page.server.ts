@@ -15,10 +15,6 @@ export const actions = {
 			return fail(400, { email: null, missing: true });
 		}
 
-		if (!form.has('subject')) {
-			return fail(400, { subject: null, missing: true });
-		}
-
 		if (!form.has('message')) {
 			return fail(400, { message: null, missing: true });
 		}
@@ -33,18 +29,13 @@ export const actions = {
 			return fail(400, { email, incorrect: true });
 		}
 
-		const subject = form.get('subject');
-		if (typeof subject !== 'string') {
-			return fail(400, { subject, incorrect: true });
-		}
-
 		const message = form.get('message');
 		if (typeof message !== 'string') {
 			return fail(400, { message, incorrect: true });
 		}
 
 		try {
-			const response = await sendContactMessage(name, email, subject, message);
+			const response = await sendContactMessage(name, email, message);
 
 			return {
 				response: {

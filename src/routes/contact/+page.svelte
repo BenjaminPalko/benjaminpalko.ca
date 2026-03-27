@@ -57,10 +57,6 @@
 			<Mail />
 			<input required name="email" type="email" class="grow" placeholder="Your Email" />
 		</label>
-		<label class="input input-bordered col-span-full flex w-full items-center gap-2 sm:col-span-1">
-			<Croissant />
-			<input required name="subject" type="text" class="grow" placeholder="Subject" />
-		</label>
 
 		<div class="row-span-3 sm:col-span-2">
 			<textarea

@@ -1,11 +1,6 @@
 import { DISCORD_CONTACT_WEBHOOK } from '$env/static/private';
 
-export async function sendContactMessage(
-	name: string,
-	email: string,
-	subject: string,
-	message: string
-) {
+export async function sendContactMessage(name: string, email: string, message: string) {
 	const form = new FormData();
 
 	//  We need a better way than this to format a string to markdown
@@ -13,7 +8,6 @@ export async function sendContactMessage(
   # Someone is reaching out!
 
   From: ${name} - [${email}](mailto:${email})
-  > **Subject: ${subject}**
   > ${message}
 `
 		.split('\n')
