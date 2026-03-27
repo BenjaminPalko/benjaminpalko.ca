@@ -1,14 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import {
-		CircleCheck,
-		CircleX,
-		Croissant,
-		Mail,
-		Send,
-		TriangleAlert,
-		UserRound
-	} from '@lucide/svelte';
+	import { CircleCheck, CircleX, Mail, Send, TriangleAlert, UserRound } from '@lucide/svelte';
 	import type { PageProps } from './$types';
 
 	let loading = $state(false);
@@ -27,10 +19,10 @@
 		};
 	}}
 >
-	<div class="mx-auto grid max-w-2xl gap-8 py-8 sm:grid-flow-col sm:grid-cols-3 sm:grid-rows-6">
-		<h2 class="col-span-full text-center text-4xl font-light">Reach out! 🤝</h2>
+	<div class="mx-auto flex max-w-lg flex-col gap-8 py-8">
+		<h2 class="text-center text-4xl font-light">Reach out! 🤝</h2>
 
-		<div class="col-span-full">
+		<div>
 			{#if form?.incorrect}
 				<div role="alert" class="alert alert-warning w-full">
 					<TriangleAlert />
@@ -49,7 +41,7 @@
 			{/if}
 		</div>
 
-		<label class="input input-bordered col-span-full flex w-full items-center sm:col-span-1">
+		<label class="input input-bordered flex w-full items-center">
 			<UserRound />
 			<input required name="name" type="text" class="grow" placeholder="Full Name" />
 		</label>
@@ -58,21 +50,17 @@
 			<input required name="email" type="email" class="grow" placeholder="Your Email" />
 		</label>
 
-		<div class="row-span-3 sm:col-span-2">
+		<div>
 			<textarea
 				required
 				name="message"
 				form="contact"
-				class="textarea textarea-bordered h-full w-full resize-none"
+				class="textarea textarea-bordered h-full min-h-48 w-full resize-none"
 				placeholder="Message"
 			></textarea>
 		</div>
 
-		<button
-			disabled={loading}
-			type="submit"
-			class="btn btn-primary col-span0 transition-colors duration-400"
-		>
+		<button disabled={loading} type="submit" class="btn btn-primary transition-colors duration-400">
 			<div class="w-6">
 				{#if loading}
 					<span class="loading loading-spinner"></span>
